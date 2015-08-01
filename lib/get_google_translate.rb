@@ -5,9 +5,9 @@ require 'json'
 module GetGoogleTranslate
 
   	class Translate	
-		def self.new(source, target, text)
+		def self.new(key, source, target, text)
 			# Generate Key From Google API console
-			client = Google::APIClient.new(:key => "AIzaSyBWXUwP2HvBOY_mmMWxmtx-l092eqXXf7E", 
+			client = Google::APIClient.new(:key => key, 
 				:application_name => "getGoogleTranslate", :application_version => 1, :authorization => nil )
 
 			# Catch Exception if there is something wrong 
@@ -25,8 +25,15 @@ module GetGoogleTranslate
 				# Encoding translate Context
 				result.body.force_encoding("UTF-8")
 				# Get only translateText from query result
-				translatedText = JSON.parse(result.body)
-				return translatedText["data"]["translations"][0]["translatedText"]
+				translatedText = JSON.parse(result.body)	
+
+				# Check it does return a error from google server
+				if translatedText["error"] != nil
+  					return translatedText["error"]["message"]
+  				else
+  					return translatedText["data"]["translations"][0]["translatedText"] 
+  				end
+				
 			rescue Exception => e
 				# Output the error message 
 				return "Error: #{e}" 

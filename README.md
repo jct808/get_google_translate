@@ -4,6 +4,11 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Before Installation 
+
+Due to Google API payment issue, You have to appy Public API access Key from Google. https://console.developers.google.com
+After you can use this gem with key and also enable the "Translate API" for google. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,11 +27,11 @@ Or install it yourself as:
 
 ## Usage
 
-GetGoogleTranslate::Translate.new(soure, target, text)
+GetGoogleTranslate::Translate.new(key, soure, target, text)
 
 example:
 
-GetGoogleTranslate::Translate.new('en', 'ja', "How's the weather today in Tokyo!!")
+GetGoogleTranslate::Translate.new('AIzaSyAULB3hd-LiCaCHRRvZp_-AJUjoAm2jlJE', 'en', 'ja', "How's the weather today in Tokyo!!")
 
 どのように天気は東京で、今日です！
 
@@ -38,5 +43,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/get_google_translate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jct808/get_google_translate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
